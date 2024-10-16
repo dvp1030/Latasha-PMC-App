@@ -1,0 +1,6 @@
+Flask==2.2.3
+Flask-Cors==3.0.10  # For handling CORS, if needed
+Flask-SQLAlchemy==2.5.1  # If you're using SQLAlchemy for database management
+Flask-Migrate==3.1.0  # For database migrations
+Flask-RESTful==0.3.9  # If you're creating a REST API
+gunicorn==20.1.0  # WSGI HTTP server for UNIX
