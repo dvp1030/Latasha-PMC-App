@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"> <!-- Google Font -->
+    <style>
+        body {
+            background: linear-gradient(to right, #e3f2fd, #bbdefb);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .flashes li {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .flashes li.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        table {
+            margin-top: 30px;
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        td {
+            background-color: #f9f9f9;
+            transition: background-color 0.3s;
+        }
+
+        td:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Pending User Approvals</h2>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in pending_users %}
+                    <tr>
+                        <td>{{ user[0] }}</td> <!-- Assuming user ID is the first element -->
+                        <td>{{ user[1] }}</td> <!-- Assuming username is the second element -->
+                        <td>
+                            <!-- Approve Button -->
+                            <form method="POST" action="/approve_users" style="display: inline-block;">
+                                <input type="hidden" name="user_id" value="{{ user[0] }}">
+                                <button type="submit" name="action" value="approve" class="btn btn-success">Approve</button>
+                            </form>
+
+                            <!-- Reject Button -->
+                            <form method="POST" action="/approve_users" style="display: inline-block;">
+                                <input type="hidden" name="user_id" value="{{ user[0] }}">
+                                <button type="submit" name="action" value="reject" class="btn btn-danger">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if pending_users|length == 0 %}
+            <p>No users are pending approval.</p>
+        {% endif %}
+    </div>
+
+    <!-- Optional Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

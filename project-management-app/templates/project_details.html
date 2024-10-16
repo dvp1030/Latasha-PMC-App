@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - {{ project[1] }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            color: #333; /* Dark gray text color */
+            font-family: 'Arial', sans-serif; /* Font style */
+            background-color: #f8f9fa; /* Light background */
+            padding: 20px; /* Padding for better spacing */
+        }
+
+        h1, h3 {
+            color: #333; /* Black text for headings */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+        }
+
+        .blue-text {
+            color: #007bff; /* Bootstrap primary color */
+        }
+
+        .task-name {
+            text-decoration: underline; /* Underline task name */
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 10px; /* Curved corners */
+            padding: 5px 10px; /* Padding for spacing */
+            display: inline-block; /* Box around text */
+            margin-bottom: 5px; /* Spacing below task name */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 3D effect */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+
+        .task-name:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .info-box {
+            border: 2px solid #dc3545; /* Red border */
+            border-radius: 10px; /* Curved corners */
+            padding: 8px 15px; /* Padding for spacing */
+            display: inline-block; /* Box around info */
+            margin-left: 5px; /* Space between text and box */
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 3D effect */
+        }
+
+        .status-container {
+            display: flex; /* Flex layout for status section */
+            align-items: center; /* Center align items vertically */
+            flex-wrap: wrap; /* Wrap items if necessary */
+        }
+
+        .status-icon {
+            font-weight: bold; /* Bold font */
+            padding: 5px 10px; /* Padding around icon */
+            border-radius: 4px; /* Rounded corners */
+            display: inline-block; /* Box around status */
+            margin-left: 10px; /* Space between items */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 3D effect */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+
+        .status-icon:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .status-in-progress {
+            background-color: #ffc107; /* Yellow */
+            color: white; /* White text */
+        }
+
+        .status-not-started {
+            background-color: #dc3545; /* Red */
+            color: white; /* White text */
+        }
+
+        .status-complete {
+            background-color: #28a745; /* Green */
+            color: white; /* White text */
+        }
+
+        select {
+            padding: 5px; /* Padding for select box */
+            border-radius: 4px; /* Rounded corners */
+            border: 1px solid #ced4da; /* Light border */
+            margin-left: 10px; /* Space from other elements */
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 3D effect */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+
+        select:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .task-container {
+            display: flex; /* Flex layout for task items */
+            justify-content: space-between; /* Space between items */
+            align-items: center; /* Center align items vertically */
+            flex-wrap: wrap; /* Wrap items if necessary */
+            padding: 10px; /* Padding around tasks */
+            background-color: #ffffff; /* White background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+            margin-bottom: 10px; /* Space between tasks */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+
+        .task-container:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        /* Responsive adjustments for mobile devices */
+        @media (max-width: 576px) {
+            .task-container {
+                flex-direction: column; /* Stack tasks vertically on smaller screens */
+                align-items: flex-start; /* Align items to the start */
+            }
+        }
+
+        .button-container {
+            display: flex; /* Flex layout for button container */
+            gap: 10px; /* Space between buttons */
+            margin-top: 20px; /* Space above buttons */
+        }
+
+        .btn {
+            font-weight: bold; /* Bold text on buttons */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 3D effect */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+
+        .btn:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Project - {{ project[1] }}</h1>
+        <p><strong class="blue-text">Start Date:</strong> <span class="info-box">{{ project[4] }}</span></p>
+        <p><strong class="blue-text">Deadline:</strong> <span class="info-box">{{ project[3] }}</span></p>
+
+        {% if tasks %}
+        <h3>Tasks ({{ tasks|length }})</h3>
+        <ul class="list-group">
+            {% for task in tasks %}
+            <li class="list-group-item task-container">
+                <div>
+                    <span class="task-number">{{ loop.index }}.</span>
+                    <strong class="task-name">{{ task[2] }}</strong>
+                    <strong class="blue-text">Deadline:</strong>
+                    <span class="info-box">{{ task[4] }}</span>
+                    <strong class="blue-text">Assigned To:</strong>
+                    <span class="info-box">{{ task[3] }}</span>
+                </div>
+                <div class="status-container">
+                    <form method="POST" action="{{ url_for('update_task_status', task_id=task[0], project_id=project[0]) }}" style="display:inline;">
+                        <select name="status" onchange="this.form.submit()">
+                            <option value="not started" {% if task[5] == 'not started' %}selected{% endif %}>Not Started</option>
+                            <option value="in progress" {% if task[5] == 'in progress' %}selected{% endif %}>In Progress</option>
+                            <option value="complete" {% if task[5] == 'complete' %}selected{% endif %}>Complete</option>
+                        </select>
+                    </form>
+                    <span class="status-icon
+                                {% if task[5] == 'in progress' %} status-in-progress 
+                                {% elif task[5] == 'not started' %} status-not-started 
+                                {% elif task[5] == 'complete' %} status-complete 
+                                {% endif %}">
+                        {{ task[5] | capitalize }}
+                    </span>
+                    <a href="{{ url_for('edit_task', task_id=task[0]) }}" class="btn btn-warning btn-sm ml-3">Edit</a>
+                    <form action="{{ url_for('delete_task', project_id=project[0], task_id=task[0]) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this task?');">Remove</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No tasks assigned to this project yet.</p>
+        {% endif %}
+
+        <!-- Button to Upload Images/Videos -->
+        <div class="button-container">
+            <a href="{{ url_for('upload_media', project_id=project[0]) }}" class="btn btn-primary">Add Images/Videos</a>
+            <a href="/" class="btn btn-secondary">Back to Projects</a>
+            <a href="{{ url_for('edit_project', project_id=project[0]) }}" class="btn btn-warning">Edit Project</a>
+            <a href="{{ url_for('add_task', project_id=project[0]) }}" class="btn btn-success">Add Task</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

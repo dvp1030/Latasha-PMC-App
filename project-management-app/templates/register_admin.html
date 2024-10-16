@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Admin</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            perspective: 1000px;
+        }
+
+        /* Form Container Styling */
+        .register-admin-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            padding: 50px 40px;
+            text-align: center;
+            width: 400px;
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* 3D Floating Animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotateY(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotateY(10deg);
+            }
+        }
+
+        /* Heading Styling */
+        .register-admin-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Form Labels */
+        .register-admin-container label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Input Fields */
+        .register-admin-container input[type="text"],
+        .register-admin-container input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border: none;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .register-admin-container input[type="text"]:focus,
+        .register-admin-container input[type="password"]:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Button Styling */
+        .register-admin-container button {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 700;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .register-admin-container button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+        }
+
+        /* Links Styling */
+        .register-admin-container p a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .register-admin-container p a:hover {
+            color: #ffd700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .register-admin-container {
+                width: 90%;
+                padding: 30px 20px;
+            }
+
+            .register-admin-container h1 {
+                font-size: 2rem;
+            }
+
+            .register-admin-container button {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register-admin-container">
+        <h1>Create Administrator Account</h1>
+        <form method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Create Admin Account</button>
+        </form>
+        <p><a href="{{ url_for('register_user') }}">Create User Account</a></p>
+        <p><a href="{{ url_for('login') }}">Login</a></p>
+    </div>
+</body>
+
+</html>

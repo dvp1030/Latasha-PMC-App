@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Attendance</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8; /* Soft background color */
+            font-family: 'Roboto', sans-serif; /* Modern font style */
+        }
+        .container {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Gradient background */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1), 
+                        -20px -20px 60px rgba(255, 255, 255, 0.9); /* Soft 3D shadow */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        .container:hover {
+            box-shadow: 30px 30px 80px rgba(0, 0, 0, 0.15), 
+                        -30px -30px 80px rgba(255, 255, 255, 1); /* Hover effect */
+        }
+        h2 {
+            color: #343a40; /* Darker text color for header */
+            text-align: center;
+            font-weight: 700; /* Bold font weight */
+            margin-bottom: 30px; /* Space below header */
+            text-transform: uppercase; /* Uppercase header */
+        }
+        .form-group label {
+            font-weight: 700; /* Bold labels */
+            color: #495057; /* Label color */
+        }
+        .form-control {
+            border-radius: 10px; /* Rounded input fields */
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), 
+                        inset -4px -4px 8px rgba(255, 255, 255, 1); /* Inner shadow */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        .form-control:focus {
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Focus shadow */
+            border-color: #28a745; /* Green border on focus */
+            background-color: #ffffff; /* Keep white background on focus */
+        }
+        .btn-primary {
+            background-color: #28a745; /* Green background for the submit button */
+            border-color: #28a745; /* Match border color */
+            border-radius: 10px; /* Rounded button */
+            font-weight: bold; /* Bold button text */
+        }
+        .btn-primary:hover {
+            background-color: #218838; /* Darker green on hover */
+            border-color: #1e7e34; /* Darker border on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+        .btn-secondary {
+            background-color: #6c757d; /* Gray for back button */
+            border-color: #6c757d;
+            border-radius: 10px; /* Rounded button */
+            font-weight: bold; /* Bold button text */
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker gray on hover */
+            border-color: #545b62;
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Record Attendance</h2>
+        <form action="/submit-attendance" method="POST">
+            <div class="form-group">
+                <label for="employee-name">Employee Name</label>
+                <input type="text" class="form-control" id="employee-name" name="employee_name" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time-in">Time In</label>
+                <input type="time" class="form-control" id="time-in" name="time_in" required>
+            </div>
+            <div class="form-group">
+                <label for="time-out">Time Out</label>
+                <input type="time" class="form-control" id="time-out" name="time_out" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit Attendance</button>
+            <a href="/" class="btn btn-secondary btn-block">Back to Home</a>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

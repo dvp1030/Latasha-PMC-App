@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Latasha PMC PVT.LTD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"> <!-- Google Font -->
+    <style>
+        body {
+            background: linear-gradient(to right, #e3f2fd, #bbdefb);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .btn {
+            margin: 5px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .user-table {
+            margin-top: 30px;
+        }
+
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .flashes li {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .flashes li:hover {
+            background-color: #c3e6cb;
+        }
+
+        .flashes li.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .flashes li.error:hover {
+            background-color: #f5c6cb;
+        }
+
+        table {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        th, td {
+            vertical-align: middle;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Company Logo -->
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Latasha PMC Logo" class="img-fluid mb-4"
+            style="max-width: 150px; display: block; margin: 0 auto;">
+
+        <!-- Page Title -->
+        <h2>Manage Users</h2>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Add User Form -->
+        <div class="add-user-form">
+            <h4>Add New User</h4>
+            <form action="{{ url_for('register_user') }}" method="POST">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" class="form-control" required
+                        placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="form-control" required
+                        placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <select name="role" id="role" class="form-control" required>
+                        <option value="user">User</option>
+                        <option value="admin">Administrator</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add User</button>
+            </form>
+        </div>
+
+        <!-- Users List -->
+        <div class="user-table">
+            <h4>Existing Users</h4>
+            {% if users %}
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td>{{ user[1] }}</td>
+                                <td>{{ user[2].capitalize() }}</td>
+                                <td>
+                                    {% if user[1] != session.get('username') %}
+                                        <form action="{{ url_for('remove_user', user_id=user[0]) }}" method="POST"
+                                            onsubmit="return confirm('Are you sure you want to remove this user?');">
+                                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                        </form>
+                                    {% else %}
+                                        <span class="text-muted">Current User</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No users found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Back to Home Button -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Optional Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

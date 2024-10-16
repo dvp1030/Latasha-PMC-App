@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Media</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Uploaded Media</h1>
+        <div class="media-container">
+            {% for media in media_list %}
+                <div class="media-item">
+                    {% if media.endswith('.mp4') or media.endswith('.avi') %}
+                        <video controls alt="{{ media }}">
+                            <source src="{{ url_for('uploaded_file', filename=media) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% else %}
+                        <img src="{{ url_for('uploaded_file', filename=media) }}" alt="{{ media }}">
+                    {% endif %}
+                    <div class="media-body">
+                        <input type="text" class="form-control mt-2" placeholder="Label" value="{{ media }}" id="label-{{ loop.index }}">
+                        <button class="btn btn-danger mt-1" onclick="confirmDelete('{{ media }}')">Delete</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('upload_media', project_id=project_id) }}" class="btn btn-secondary mt-3">Back to Upload</a>
+    </div>
+</body>
+</html>

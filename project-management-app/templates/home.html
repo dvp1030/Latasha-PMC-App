@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latasha PMC PVT.LTD - Project Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <style>
+        body {
+            background-color: #f4f4f9; /* Light background for better contrast */
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        h2:hover {
+            color: #007bff; /* Primary color on hover */
+        }
+
+        .btn {
+            margin: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 12px 25px; /* Button padding */
+            font-weight: bold;
+            border-radius: 10px; /* Rounded button corners */
+            position: relative;
+            overflow: hidden;
+            color: #fff; /* White text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+        }
+
+        .btn-success {
+            background-color: #28a745; /* Green color for view goods button */
+            border-color: #28a745;
+        }
+
+        .btn-info {
+            background-color: #17a2b8; /* Light blue */
+            border-color: #17a2b8;
+        }
+
+        .btn-warning {
+            background-color: #ffc107; /* Yellow */
+            border-color: #ffc107;
+            color: #212529;
+        }
+
+        .btn-danger {
+            background-color: #dc3545; /* Red */
+            border-color: #dc3545;
+            color: #fff;
+        }
+
+        .btn-orange {
+            background-color: #ff8c00; /* Orange color for the add user button */
+            border-color: #ff8c00; /* Match border color */
+        }
+
+        .btn-orange:hover {
+            background-color: #e67e22; /* Darker orange on hover */
+        }
+
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .flashes li {
+            background-color: #f8d7da; /* Light red background */
+            color: #721c24; /* Dark red text */
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .flashes li:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .btn {
+                padding: 10px 15px; /* Smaller padding on mobile */
+                font-size: 14px; /* Adjust font size */
+            }
+
+            h2 {
+                font-size: 24px; /* Smaller heading on mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Company Logo -->
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Latasha PMC Logo" class="img-fluid mb-4" style="max-width: 150px; display: block; margin: 0 auto;">
+
+        <!-- Welcome Message -->
+        <h2>Welcome to Latasha PMC PVT. LTD</h2>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Display the logged-in username -->
+        {% if username %}
+            <h5 class="text-center">Logged in as: <strong>{{ username }}</strong></h5>
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div class="text-center mb-4">
+            <a href="/record-attendance/" class="btn btn-primary"><i class="fas fa-check-circle"></i> Record Attendance</a>
+            <a href="/view-attendance/" class="btn btn-primary"><i class="fas fa-eye"></i> View Attendance</a>
+            <a href="/view-goods/" class="btn btn-success"><i class="fas fa-box"></i> View Goods</a>
+            <a href="/projects" class="btn btn-warning"><i class="fas fa-project-diagram"></i> View Projects</a>
+
+            <!-- Admin-Only Buttons -->
+            {% if role == 'admin' %}
+                <a href="/users/" class="btn btn-info"><i class="fas fa-users"></i> View Users</a>
+                <a href="/register/user" class="btn btn-orange"><i class="fas fa-user-plus"></i> Add User</a> <!-- Orange color for add user -->
+                <a href="/approve_users" class="btn btn-info"><i class="fas fa-user-check"></i> View User Approvals</a>
+            {% endif %}
+
+            <!-- Logout Button -->
+            <a href="/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+
+        <!-- Removed Projects Section -->
+    </div>
+
+    <!-- Optional Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #343a40;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: center;
+            padding: 15px;
+        }
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+        .employee-name {
+            border: 2px solid #007bff; /* Blue border for employee name */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Padding for better appearance */
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+        .date-cell {
+            border: 2px solid #28a745; /* Green border for date */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Padding for better appearance */
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+        .time-cell {
+            border: 2px solid #fd7e14; /* Orange border for time in/out */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Padding for better appearance */
+            background-color: #f8f9fa;
+            font-weight: 500;
+        }
+        .date-row {
+            background-color: #f1f3f5;
+            font-weight: 700;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>View Attendance</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Date</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set current_date = '' %}
+                {% for record in attendance_records %}
+                    {% if record.date != current_date %}
+                        {% if not loop.first %} 
+                            <tr><td colspan="4" style="height: 10px;"></td></tr> <!-- Spacer -->
+                        {% endif %}
+                        <tr class="date-row">
+                            <td colspan="4">{{ record.date }}</td>
+                        </tr>
+                        {% set current_date = record.date %}
+                    {% endif %}
+                    <tr>
+                        <td class="employee-name">{{ record.employee_name }}</td>
+                        <td class="date-cell"></td> <!-- Date is already displayed above -->
+                        <td class="time-cell">{{ record.time_in }}</td>
+                        <td class="time-cell">{{ record.time_out }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

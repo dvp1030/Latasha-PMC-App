@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latasha PMC PVT.LTD - Project Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"> <!-- Google Font -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <style>
+        body {
+            background-color: #f4f7fa; /* Lighter background */
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover animation */
+        }
+        .container:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        h2 {
+            color: #2c3e50; /* Dark text color */
+            margin-bottom: 30px; /* Space below heading */
+            text-align: center; /* Center heading */
+            font-weight: bold; /* Bold font */
+            text-transform: uppercase; /* Uppercase text */
+        }
+        .btn {
+            margin: 8px; /* Space between buttons */
+            transition: background-color 0.3s, transform 0.3s; /* Button animations */
+            padding: 10px 20px;
+            font-weight: bold; /* Bold font */
+        }
+        .btn:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-success {
+            background-color: #28a745; /* Green color for view goods button */
+            border-color: #28a745; /* Ensure the border is also green */
+        }
+        .btn-info {
+            background-color: #17a2b8; /* Added for consistency */
+            border-color: #17a2b8;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #212529;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #fff;
+        }
+        .project-list {
+            margin-top: 30px;
+        }
+        .project-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #e9ecef; /* Lighter gray for project item */
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 10px; /* Curved corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for project item */
+            transition: transform 0.3s; /* Animation for project item */
+        }
+        .project-item:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+        .project-item h4 {
+            margin-bottom: 10px;
+            color: #2c3e50; /* Dark text color for project title */
+            font-weight: bold; /* Highlight project name */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for text */
+            font-family: 'Poppins', sans-serif; /* Stylish font for project name */
+            font-size: 1.5rem; /* Increased font size */
+        }
+        .project-description {
+            color: #6c757d; /* Muted text for descriptions */
+            font-size: 1rem;
+        }
+        .project-details {
+            margin: 5px 0; /* Margin for project details */
+            color: #495057; /* Slightly darker color for details */
+            font-weight: 500; /* Medium weight for project details */
+        }
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .flashes li {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Company Logo -->
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Latasha PMC Logo" class="img-fluid mb-4" style="max-width: 150px; display: block; margin: 0 auto;">
+        
+        <!-- Welcome Message -->
+        <h2>Welcome to Latasha PMC PVT. LTD</h2>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Display the logged-in username -->
+        {% if username %}
+            <h5 class="text-center">Logged in as: <strong>{{ username }}</strong></h5>
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div class="text-center mb-4">
+            <a href="/add-project/" class="btn btn-warning">Add Project</a> <!-- Added Add Project Button -->
+            
+            <!-- Logout Button -->
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="project-list">
+            {% if projects %}
+                {% for project in projects %}
+                <div class="project-item">
+                    <h4>
+                        <!-- Project name with numbering -->
+                        {{ loop.index }}. Project - {{ project[1] }}
+                    </h4>
+                    <!-- Project details: start date, deadline, status -->
+                    <div class="project-details">
+                        <strong>Start Date:</strong> {{ project[4] }}<br>
+                        <strong>Deadline:</strong> {{ project[3] }}<br>
+                        <strong>Status:</strong> {{ project[5] }}<br> <!-- Added status -->
+                    </div>
+                    <a href="/projects/{{ project[0] }}" class="btn btn-info">View Details</a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No projects added yet. <a href="/add-project/" class="btn btn-warning">Add a New Project</a> to get started.</p> <!-- Updated link to button -->
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Optional Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

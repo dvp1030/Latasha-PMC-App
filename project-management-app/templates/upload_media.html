@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Media</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5; /* Light background for modern look */
+            color: #333; /* Dark text color */
+            font-family: 'Arial', sans-serif; /* Font style */
+        }
+
+        h1 {
+            color: #007bff; /* Primary color for the header */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+            font-weight: bold; /* Bold font for the heading */
+            margin-bottom: 30px; /* Space below heading */
+            text-align: center; /* Center align header */
+        }
+
+        .container {
+            background: #ffffff; /* White background for container */
+            padding: 40px; /* Padding for spacing */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            max-width: 600px; /* Limit width of the container */
+            margin: auto; /* Center the container */
+        }
+
+        .form-group {
+            margin-bottom: 25px; /* Space below form groups */
+        }
+
+        .form-control {
+            border-radius: 10px; /* Rounded corners for input */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Inset shadow for depth */
+            transition: all 0.3s; /* Transition for smooth effects */
+        }
+
+        .form-control:focus {
+            border-color: #007bff; /* Primary color on focus */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        button {
+            font-weight: bold; /* Bold text for buttons */
+            border-radius: 10px; /* Rounded corners for buttons */
+            transition: all 0.3s; /* Transition for smooth effects */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+
+        button:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        }
+
+        .btn-secondary {
+            background-color: #6c757d; /* Secondary button color */
+            border: none; /* Remove border */
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker shade on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Upload Images and Videos</h1>
+        <form action="{{ url_for('handle_upload', project_id=project_id) }}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="media">Select Images/Videos:</label>
+                <input type="file" class="form-control" id="media" name="media" multiple required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Upload</button>
+        </form>
+
+        <!-- Button to view uploaded media -->
+        <a href="{{ url_for('view_uploaded_media', project_id=project_id) }}" class="btn btn-secondary btn-block mt-3">View Uploaded Media</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

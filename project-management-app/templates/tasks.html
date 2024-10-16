@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background */
+        }
+        .container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h2 {
+            color: #343a40; /* Dark text color */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        .list-group-item {
+            transition: transform 0.2s, box-shadow 0.2s; /* Animation for hover */
+        }
+        .list-group-item:hover {
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+        .task-number {
+            display: inline-block;
+            background-color: #007bff; /* Blue background */
+            color: white;
+            border-radius: 50%;
+            padding: 0.3em 0.6em;
+            margin-right: 10px; /* Space between number and text */
+        }
+        .status-button {
+            margin-left: 10px; /* Space between buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tasks for Project {{ project_id }}</h2>
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="task-number">{{ loop.index }}</span> <!-- Task number -->
+                        {{ task[2] }} (Assignee: {{ task[3] }}, Deadline: {{ task[4] }})
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <form action="{{ url_for('update_task_status', task_id=task[0]) }}" method="POST" class="d-inline">
+                            <select name="status" class="form-control form-control-sm" onchange="this.form.submit()">
+                                <option value="Not Started" {% if task[5] == 'Not Started' %}selected{% endif %}>Not Started</option>
+                                <option value="In Progress" {% if task[5] == 'In Progress' %}selected{% endif %}>In Progress</option>
+                                <option value="Completed" {% if task[5] == 'Completed' %}selected{% endif %}>Completed</option>
+                            </select>
+                        </form>
+                        <form action="{{ url_for('remove_task', task_id=task[0], project_id=project_id) }}" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm status-button">Remove</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

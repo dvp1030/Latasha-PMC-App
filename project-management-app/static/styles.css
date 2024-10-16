@@ -1,0 +1,124 @@
+/* static/styles.css */
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    perspective: 1000px;
+}
+
+/* Users Container */
+.users-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    padding: 50px 40px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    animation: float 6s infinite ease-in-out;
+}
+
+/* 3D Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotateY(10deg);
+    }
+}
+
+/* Heading Styling */
+.users-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th {
+    background: rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+td {
+    font-weight: 500;
+}
+
+/* Logout Button */
+.logout-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.logout-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .users-container {
+        padding: 30px 20px;
+    }
+
+    .users-container h1 {
+        font-size: 2rem;
+    }
+
+    th, td {
+        padding: 10px 12px;
+    }
+
+    .logout-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

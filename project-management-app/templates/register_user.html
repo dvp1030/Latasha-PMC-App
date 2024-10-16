@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register User - Latasha PMC PVT.LTD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap">
+    <style>
+        /* Body Styling */
+        body {
+            background-color: #d1e9ff; /* Light blue background */
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        /* Container Styling */
+        .container {
+            margin-top: 50px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Styling */
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button Styling */
+        .btn {
+            margin: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 25px;
+            border: none;
+        }
+
+        /* Button Hover Effects */
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Flash Messages Styling */
+        .flashes {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .flashes li {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .flashes li.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Company Logo */
+        .logo {
+            max-width: 150px;
+            display: block;
+            margin: 0 auto 20px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Company Logo -->
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Latasha PMC Logo" class="logo img-fluid">
+
+        <!-- Page Title -->
+        <h2>Register User</h2>
+
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- User Registration Form -->
+        <form action="{{ url_for('register_user') }}" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" class="form-control" required placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" required placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="admin_username">Admin Username:</label>
+                <input type="text" name="admin_username" id="admin_username" class="form-control" required placeholder="Enter admin username">
+            </div>
+            <button type="submit" class="btn btn-primary">Register User</button>
+            <a href="{{ url_for('view_users') }}" class="btn btn-danger">Back to Users</a>
+        </form>
+    </div>
+
+    <!-- Optional Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.2.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+2024-10-09 00:21:18,471 INFO Database initialized successfully.
+2024-10-09 00:21:18,479 WARNING  * Debugger is active!
+2024-10-09 00:21:18,488 INFO  * Debugger PIN: 140-696-310
+2024-10-09 00:21:19,711 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:19,719 INFO 127.0.0.1 - - [09/Oct/2024 00:21:19] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:19,737 INFO 127.0.0.1 - - [09/Oct/2024 00:21:19] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:19,745 INFO 127.0.0.1 - - [09/Oct/2024 00:21:19] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:19,752 INFO 127.0.0.1 - - [09/Oct/2024 00:21:19] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:21,759 INFO  * Detected change in 'G:\\project-management-app\\project-management-app\\project-management-app\\app.py', reloading
+2024-10-09 00:21:22,315 INFO Database initialized successfully.
+2024-10-09 00:21:22,321 WARNING  * Debugger is active!
+2024-10-09 00:21:22,330 INFO  * Debugger PIN: 140-696-310
+2024-10-09 00:21:42,564 INFO  * Detected change in 'G:\\project-management-app\\project-management-app\\project-management-app\\app.py', reloading
+2024-10-09 00:21:42,994 INFO Database initialized successfully.
+2024-10-09 00:21:43,000 WARNING  * Debugger is active!
+2024-10-09 00:21:43,009 INFO  * Debugger PIN: 140-696-310
+2024-10-09 00:21:44,012 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:44,018 INFO 127.0.0.1 - - [09/Oct/2024 00:21:44] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:44,080 INFO 127.0.0.1 - - [09/Oct/2024 00:21:44] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:44,089 INFO 127.0.0.1 - - [09/Oct/2024 00:21:44] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:44,097 INFO 127.0.0.1 - - [09/Oct/2024 00:21:44] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:44,718 DEBUG Retrieved 2 attendance records.
+2024-10-09 00:21:44,721 INFO 127.0.0.1 - - [09/Oct/2024 00:21:44] "GET /view-attendance/ HTTP/1.1" 200 -
+2024-10-09 00:21:45,287 INFO 127.0.0.1 - - [09/Oct/2024 00:21:45] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:45,961 DEBUG Record attendance page accessed.
+2024-10-09 00:21:45,962 INFO 127.0.0.1 - - [09/Oct/2024 00:21:45] "GET /record-attendance/ HTTP/1.1" 200 -
+2024-10-09 00:21:46,422 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:46,944 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:46,951 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:46,952 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:46,956 DEBUG Home route accessed.
+2024-10-09 00:21:46,956 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:46,961 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:46,961 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:46,977 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:46,989 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:46,993 INFO 127.0.0.1 - - [09/Oct/2024 00:21:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:47,926 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:47,927 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:47,928 INFO 127.0.0.1 - - [09/Oct/2024 00:21:47] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:47,931 DEBUG Home route accessed.
+2024-10-09 00:21:47,932 INFO 127.0.0.1 - - [09/Oct/2024 00:21:47] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:47,938 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:47,938 INFO 127.0.0.1 - - [09/Oct/2024 00:21:47] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:47,952 INFO 127.0.0.1 - - [09/Oct/2024 00:21:47] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:47,960 INFO 127.0.0.1 - - [09/Oct/2024 00:21:47] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:47,965 INFO 127.0.0.1 - - [09/Oct/2024 00:21:47] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,459 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:48,460 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:48,461 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:48,465 DEBUG Home route accessed.
+2024-10-09 00:21:48,465 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:48,470 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:48,471 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:48,492 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,500 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,507 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,758 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:48,761 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:48,761 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:48,766 DEBUG Home route accessed.
+2024-10-09 00:21:48,767 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:48,772 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:48,772 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:48,791 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,799 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,806 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:48,969 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:48,971 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:48,971 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:48,975 DEBUG Home route accessed.
+2024-10-09 00:21:48,976 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:48,980 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:48,981 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:48,999 INFO 127.0.0.1 - - [09/Oct/2024 00:21:48] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,009 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,014 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,209 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:49,210 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:49,211 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,215 DEBUG Home route accessed.
+2024-10-09 00:21:49,216 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,221 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:49,221 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:49,241 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,249 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,256 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,411 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:49,413 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:49,413 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,418 DEBUG Home route accessed.
+2024-10-09 00:21:49,419 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,423 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:49,424 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:49,443 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,449 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,456 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,620 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:49,621 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:49,622 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,626 DEBUG Home route accessed.
+2024-10-09 00:21:49,626 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,631 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:49,632 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:49,651 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,660 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,668 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,823 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:49,825 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:49,826 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,830 DEBUG Home route accessed.
+2024-10-09 00:21:49,831 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:49,836 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:49,837 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:49,854 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,862 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:49,868 INFO 127.0.0.1 - - [09/Oct/2024 00:21:49] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:50,041 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:50,042 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:50,044 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:50,048 DEBUG Home route accessed.
+2024-10-09 00:21:50,048 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:50,053 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:50,054 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:50,072 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:50,080 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:50,086 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:50,287 DEBUG Retrieved 12 goods.
+2024-10-09 00:21:50,288 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:21:50,289 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:21:50,293 DEBUG Home route accessed.
+2024-10-09 00:21:50,294 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:21:50,298 DEBUG Retrieved 1 projects.
+2024-10-09 00:21:50,299 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:21:50,325 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:50,333 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:21:50,341 INFO 127.0.0.1 - - [09/Oct/2024 00:21:50] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:21:53,102 INFO  * Detected change in 'G:\\project-management-app\\project-management-app\\project-management-app\\app.py', reloading
+2024-10-09 00:24:51,708 INFO Database initialized successfully.
+2024-10-09 00:24:51,719 WARNING  * Debugger is active!
+2024-10-09 00:24:51,730 INFO  * Debugger PIN: 140-696-310
+2024-10-09 00:24:52,451 INFO 127.0.0.1 - - [09/Oct/2024 00:24:52] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:24:52,472 INFO 127.0.0.1 - - [09/Oct/2024 00:24:52] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:52,479 INFO 127.0.0.1 - - [09/Oct/2024 00:24:52] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:24:52,486 INFO 127.0.0.1 - - [09/Oct/2024 00:24:52] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:53,666 ERROR Error viewing goods: Could not build url for endpoint 'edit_good'. Did you forget to specify values ['good_id']?
+2024-10-09 00:24:53,666 INFO 127.0.0.1 - - [09/Oct/2024 00:24:53] "[32mGET /view-goods/ HTTP/1.1[0m" 302 -
+2024-10-09 00:24:53,671 INFO 127.0.0.1 - - [09/Oct/2024 00:24:53] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:24:53,677 INFO 127.0.0.1 - - [09/Oct/2024 00:24:53] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:24:53,692 INFO 127.0.0.1 - - [09/Oct/2024 00:24:53] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:53,703 INFO 127.0.0.1 - - [09/Oct/2024 00:24:53] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:24:53,708 INFO 127.0.0.1 - - [09/Oct/2024 00:24:53] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:54,499 INFO 127.0.0.1 - - [09/Oct/2024 00:24:54] "GET /view-attendance/ HTTP/1.1" 200 -
+2024-10-09 00:24:55,047 INFO 127.0.0.1 - - [09/Oct/2024 00:24:55] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:55,652 INFO 127.0.0.1 - - [09/Oct/2024 00:24:55] "GET /record-attendance/ HTTP/1.1" 200 -
+2024-10-09 00:24:56,051 INFO 127.0.0.1 - - [09/Oct/2024 00:24:56] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:56,805 INFO 127.0.0.1 - - [09/Oct/2024 00:24:56] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:24:57,592 INFO 127.0.0.1 - - [09/Oct/2024 00:24:57] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:24:59,972 INFO 127.0.0.1 - - [09/Oct/2024 00:24:59] "GET /tasks/1/edit HTTP/1.1" 200 -
+2024-10-09 00:25:03,514 INFO Task ID 1 deleted from Project ID 1.
+2024-10-09 00:25:03,515 INFO 127.0.0.1 - - [09/Oct/2024 00:25:03] "[32mPOST /projects/1/tasks/1/delete HTTP/1.1[0m" 302 -
+2024-10-09 00:25:03,519 INFO 127.0.0.1 - - [09/Oct/2024 00:25:03] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:04,918 INFO 127.0.0.1 - - [09/Oct/2024 00:25:04] "GET /projects/1/add_task HTTP/1.1" 200 -
+2024-10-09 00:25:06,035 INFO 127.0.0.1 - - [09/Oct/2024 00:25:06] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:25:06,040 INFO 127.0.0.1 - - [09/Oct/2024 00:25:06] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:25:06,070 INFO 127.0.0.1 - - [09/Oct/2024 00:25:06] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:25:06,079 INFO 127.0.0.1 - - [09/Oct/2024 00:25:06] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:25:06,087 INFO 127.0.0.1 - - [09/Oct/2024 00:25:06] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:25:07,145 INFO 127.0.0.1 - - [09/Oct/2024 00:25:07] "GET /edit-project/1/ HTTP/1.1" 200 -
+2024-10-09 00:25:08,166 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:08,167 INFO 127.0.0.1 - - [09/Oct/2024 00:25:08] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:08,171 INFO 127.0.0.1 - - [09/Oct/2024 00:25:08] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:09,272 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:09,273 INFO 127.0.0.1 - - [09/Oct/2024 00:25:09] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:09,278 INFO 127.0.0.1 - - [09/Oct/2024 00:25:09] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:09,745 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:09,746 INFO 127.0.0.1 - - [09/Oct/2024 00:25:09] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:09,750 INFO 127.0.0.1 - - [09/Oct/2024 00:25:09] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:09,963 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:09,964 INFO 127.0.0.1 - - [09/Oct/2024 00:25:09] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:09,968 INFO 127.0.0.1 - - [09/Oct/2024 00:25:09] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:10,157 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:10,158 INFO 127.0.0.1 - - [09/Oct/2024 00:25:10] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:10,162 INFO 127.0.0.1 - - [09/Oct/2024 00:25:10] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:10,331 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:10,331 INFO 127.0.0.1 - - [09/Oct/2024 00:25:10] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:10,336 INFO 127.0.0.1 - - [09/Oct/2024 00:25:10] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:10,555 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:10,556 INFO 127.0.0.1 - - [09/Oct/2024 00:25:10] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:10,561 INFO 127.0.0.1 - - [09/Oct/2024 00:25:10] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:11,500 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:11,500 INFO 127.0.0.1 - - [09/Oct/2024 00:25:11] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:11,504 INFO 127.0.0.1 - - [09/Oct/2024 00:25:11] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:12,085 ERROR Error uploading media for project 1: Could not build url for endpoint 'handle_upload' with values ['project_id']. Did you mean 'delete_good' instead?
+2024-10-09 00:25:12,086 INFO 127.0.0.1 - - [09/Oct/2024 00:25:12] "[32mGET /upload_media/1 HTTP/1.1[0m" 302 -
+2024-10-09 00:25:12,091 INFO 127.0.0.1 - - [09/Oct/2024 00:25:12] "GET /projects/1 HTTP/1.1" 200 -
+2024-10-09 00:25:14,483 INFO 127.0.0.1 - - [09/Oct/2024 00:25:14] "[32mGET / HTTP/1.1[0m" 302 -
+2024-10-09 00:25:14,487 INFO 127.0.0.1 - - [09/Oct/2024 00:25:14] "GET /projects/ HTTP/1.1" 200 -
+2024-10-09 00:25:14,526 INFO 127.0.0.1 - - [09/Oct/2024 00:25:14] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:25:14,535 INFO 127.0.0.1 - - [09/Oct/2024 00:25:14] "[36mGET /static/manifest.json HTTP/1.1[0m" 304 -
+2024-10-09 00:25:14,541 INFO 127.0.0.1 - - [09/Oct/2024 00:25:14] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2024-10-09 00:25:18,110 INFO  * Detected change in 'G:\\project-management-app\\project-management-app\\project-management-app\\app.py', reloading
+2024-10-09 00:28:02,940 INFO Database initialized successfully.
+2024-10-09 00:28:02,946 WARNING  * Debugger is active!
+2024-10-09 00:28:02,953 INFO  * Debugger PIN: 140-696-310
+2024-10-09 00:28:40,316 INFO  * Detected change in 'G:\\project-management-app\\project-management-app\\project-management-app\\app.py', reloading

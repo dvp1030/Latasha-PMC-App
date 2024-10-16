@@ -1,0 +1,108 @@
+<!-- templates/edit_project.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef; /* Light background for contrast */
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+            transition: transform 0.3s; /* Smooth transition */
+        }
+        .container:hover {
+            transform: scale(1.02); /* Slight scaling effect on hover */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 2em; /* Larger title font */
+            color: #343a40; /* Darker color for contrast */
+        }
+        label {
+            font-weight: bold;
+            color: #495057; /* Darker label color */
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em; /* Larger button text */
+            border-radius: 8px; /* Rounded button corners */
+            transition: background-color 0.3s; /* Smooth background transition */
+        }
+        button:hover {
+            background-color: #007bff; /* Darker blue on hover */
+        }
+        .alert {
+            display: none; /* Hidden by default, will show if there's an error */
+        }
+        .form-control {
+            border-radius: 8px; /* Rounded input corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for inputs */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Project</h1>
+
+        <!-- Alert for error messages -->
+        <div class="alert alert-danger" id="error-alert"></div>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Project Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ project[1] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="client">Client:</label>
+                <input type="text" class="form-control" id="client" name="client" value="{{ project[2] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start_date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" name="deadline" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select class="form-control" id="status" name="status" required>
+                    <option value="Pending" {% if project[5] == 'Pending' %}selected{% endif %}>Pending</option>
+                    <option value="Completed" {% if project[5] == 'Completed' %}selected{% endif %}>Completed</option>
+                    <option value="In Progress" {% if project[5] == 'In Progress' %}selected{% endif %}>In Progress</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Project</button>
+        </form>
+
+        <script>
+            // Example JavaScript to show the error alert if needed
+            const errorAlert = document.getElementById('error-alert');
+            const hasError = {{ 'true' if error_message else 'false' }};  // Example of backend condition
+            if (hasError) {
+                errorAlert.textContent = '{{ error_message }}';  // Pass the error message from Flask
+                errorAlert.style.display = 'block';
+            }
+        </script>
+    </div>
+</body>
+</html>
